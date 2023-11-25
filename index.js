@@ -3,6 +3,10 @@ const app=express();
 const PORT=8000;
 const {getProfile}=require('./fyers');
 
+app.get("/",(req,res)=>{
+    res.send("Welcome to Fyers V3 services")
+})
+
 app.get("/getprofile",async(req,res)=>{
     const data= await getProfile();
     console.log(data);
