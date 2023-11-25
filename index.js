@@ -6,6 +6,9 @@ const {getProfile}=require('./fyers');
 app.get("/",(req,res)=>{
     res.send("Welcome to Fyers V3 services")
 })
+app.get("/order",(req,res)=>{
+    res.send("Oder completed")
+})
 
 app.get("/getprofile",async(req,res)=>{
     const data= await getProfile();
