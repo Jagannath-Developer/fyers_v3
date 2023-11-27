@@ -47,6 +47,8 @@ app.get("/fyers", async (req, res) => {
   await fs.writeFile("fyers.txt", JSON.stringify(result), function (err) {
     if (err) return console.log(err);
     console.log("Hello World > fyers.txt");
+    const data_result = fs.readFileSync("fyers.txt");
+    console.log(data_result)
   });
   res.send("done");
 });
