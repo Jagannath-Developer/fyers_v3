@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 //=========================================
 const ws = require("ws");
-var client = new ws("wss:fyers-api-services.onrender.com/");
+var client = new ws("wss://fyers-api-services.onrender.com/");
+// var client = new ws("ws://localhost:8080/");
 //===============================
 
 app.get("/", (req, res) => {
