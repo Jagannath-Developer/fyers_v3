@@ -1,8 +1,8 @@
-const express=require('express');
-const app=express();
-const PORT= 8080;
-const {getProfile}=require('./fyers');
-const {login,generateToken} =require("./loginFyers");
+const express = require("express");
+const app = express();
+const PORT = 8080;
+const { getProfile } = require("./fyers");
+const { login, generateToken } = require("./loginFyers");
 //=================for login===================
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -13,21 +13,22 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 //=========================================
 
-app.get("/",(req,res)=>{
-    res.send("Welcome to Fyers V3 services")
-})
-app.get("/change ",(req,res)=>{
-    res.send("changed 12:22")
-})
-app.get("/order",(req,res)=>{
-    res.send("Oder completed")
-})
+app.get("/", (req, res) => {
+  res.send("Welcome to Fyers V3 services");
+});
 
-app.get("/getprofile",async(req,res)=>{
-    const data= await getProfile();
-    console.log(data);
-    res.send(data);
-})
+app.get("/order", async(req, res) => {
+  const data_result =await fs.readFileSync("fyers.txt");
+  const data =await JSON.parse(data_result);
+  console.log("get file");
+  res.send(data);
+});
+
+app.get("/getprofile", async (req, res, next) => {
+  const data = await getProfile();
+  console.log(data);
+  res.send(data);
+});
 //============================login process==========================
 app.get("/fyers", async (req, res) => {
   const url = req.query;
@@ -47,16 +48,12 @@ app.get("/fyers", async (req, res) => {
   await fs.writeFile("fyers.txt", JSON.stringify(result), function (err) {
     if (err) return console.log(err);
     console.log("Hello World > fyers.txt");
-    const data_result = fs.readFileSync("fyers.txt");
-    const data = JSON.parse(data_result);
-    console.log(data);
   });
   res.send("done");
 });
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/login.html");
 });
-
 
 //=========================
 const WebSocket = require("ws");
@@ -90,5 +87,3 @@ wss.on("connection", function connection(ws) {
 
   // ws.send('Hello, client!');
 });
-
-
