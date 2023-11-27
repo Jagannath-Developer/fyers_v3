@@ -48,7 +48,8 @@ app.get("/fyers", async (req, res) => {
     if (err) return console.log(err);
     console.log("Hello World > fyers.txt");
     const data_result = fs.readFileSync("fyers.txt");
-    console.log(data_result)
+    const data = JSON.parse(data_result);
+    console.log(data);
   });
   res.send("done");
 });
