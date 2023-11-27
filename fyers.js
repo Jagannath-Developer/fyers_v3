@@ -26,20 +26,20 @@ const FyersSocket = require("fyers-api-v3").fyersDataSocket;
 var fyersdata = new FyersSocket(auth_token);
 
 function onconnect() {
-  fyersdata.subscribe(["NSE:BANKNIFTY23NOV43900PE"]); //not subscribing for market depth data
+  fyersdata.subscribe(["MCX:CRUDEOIL23DEC6300PE"]); //not subscribing for market depth data
   //   fyersdata.subscribe(["NSE:IDEA-EQ"], true); //subscribing for market depth
   fyersdata.mode(fyersdata.LiteMode); //set data mode to lite mode
   fyersdata.autoreconnect(); //enable auto reconnection mechanism in case of disconnection
 }
 
-// const ws = require("ws");
-// var client = new ws("ws://localhost:8080/");
-// client.on("open", function open() {
-//   console.log("connected");
-// });
+const ws = require("ws");
+var client = new ws("wss://fyers-api-services.onrender.com");
+client.on("open", function open() {
+  console.log("connected");
+});
 function onmsg(message) {
-  // console.log(message);
-  // client.send(JSON.stringify(message));
+  console.log(message);
+  client.send(JSON.stringify(message));
 }
 
 function onerror(err) {

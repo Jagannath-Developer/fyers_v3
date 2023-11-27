@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 //=========================================
 const ws = require("ws");
-var client = new ws("wss://fyers-api-services.onrender.com/");
+var client = new ws("wss://fyers-api-services.onrender.com");
 // var client = new ws("ws://localhost:8080/");
 //===============================
 
@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
 app.get("/run",async(req,res)=>{
   client.send(`jitu ${Date.now()}`)
   res.send("Websocket Run....!")
+
 })
 app.get("/order", async(req, res) => {
   const data_result =await fs.readFileSync("fyers.txt");
