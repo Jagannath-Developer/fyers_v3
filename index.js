@@ -1,6 +1,6 @@
 const express=require('express');
 const app=express();
-const PORT=process.env.PORT || 8080;
+const PORT= 8080;
 const {getProfile}=require('./fyers');
 const {login,generateToken} =require("./loginFyers");
 //=================for login===================
@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Fyers V3 services")
+})
+app.get("/order",(req,res)=>{
+    res.send("Oder completed")
 })
 
 app.get("/getprofile",async(req,res)=>{
@@ -48,6 +51,7 @@ app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/login.html");
 });
 
+
 //=========================
 const WebSocket = require("ws");
 
@@ -80,3 +84,5 @@ wss.on("connection", function connection(ws) {
 
   // ws.send('Hello, client!');
 });
+
+
