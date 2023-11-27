@@ -17,7 +17,7 @@ if (data_result.length != 0) {
 }
 //===============================
 var fyers = new FyersAPI();
-fyers.setAppId("T0JAUCU7EV-100");
+fyers.setAppId("J4P12HGNB8-100");
 fyers.setAccessToken(auth_token);
 
 

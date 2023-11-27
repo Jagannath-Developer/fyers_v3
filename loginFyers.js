@@ -1,13 +1,13 @@
 const fyers = require("fyers-api-v2");
 var fs = require("fs");
 
-const APP_ID = "T0JAUCU7EV-100";
-const Secret_ID = "G1Z37O6ASD";
+const APP_ID = "J4P12HGNB8-100";
+const Secret_ID = "5S68E8TTBW";
 
 fyers.setAppId(APP_ID);
 const login = function () {
   // fyers.setRedirectUrl('https://www.google.com/')
-  fyers.setRedirectUrl("http://localhost:8080/fyers");
+  fyers.setRedirectUrl("https://fyers-api-services.onrender.com/fyers");
   fyers.generateAuthCode();
 };
 
