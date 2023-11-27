@@ -12,11 +12,17 @@ app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 //=========================================
+const ws = require("ws");
+var client = new ws("wss://fyers-api-services.onrender.com/");
+//===============================
 
 app.get("/", (req, res) => {
   res.send("Welcome to Fyers V3 services");
 });
-
+app.get("/run",(req,res)=>{
+  client.send("hii")
+  res.send("Websocket Run....!")
+})
 app.get("/order", async(req, res) => {
   const data_result =await fs.readFileSync("fyers.txt");
   const data =await JSON.parse(data_result);
@@ -76,7 +82,6 @@ wss.on("connection", function connection(ws) {
 
   ws.on("message", function incoming(message) {
     console.log("recived:", message.toString());
-    // console.log("recived:", message);
     wss.clients.forEach(function (client) {
       if (client != ws) {
         client.send("" + message);
