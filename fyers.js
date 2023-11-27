@@ -33,11 +33,10 @@ function onconnect() {
 }
 
 // const ws = require("ws");
-// var client = new ws("wss://fyers-api-services.onrender.com/");
+// var client = new ws("ws://localhost:8080/");
 // client.on("open", function open() {
 //   console.log("connected");
 // });
-client.send("hii")
 function onmsg(message) {
   console.log(message);
   // client.send(JSON.stringify(message));
