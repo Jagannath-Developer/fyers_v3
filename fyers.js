@@ -38,16 +38,16 @@ function onconnect() {
 //   console.log("connected");
 // });
 function onmsg(message) {
-  console.log(message);
+  // console.log(message);
   // client.send(JSON.stringify(message));
 }
 
 function onerror(err) {
-  console.log(err);
+  // console.log(err);
 }
 
 function onclose() {
-  console.log("socket closed");
+  // console.log("socket closed");
 }
 
 fyersdata.on("message", onmsg);

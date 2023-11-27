@@ -20,8 +20,8 @@ var client = new ws("wss://fyers-api-services.onrender.com/");
 app.get("/", (req, res) => {
   res.send("Welcome to Fyers V3 services");
 });
-app.get("/run",(req,res)=>{
-  client.send("hii")
+app.get("/run",async(req,res)=>{
+  client.send(`jitu ${Date.now()}`)
   res.send("Websocket Run....!")
 })
 app.get("/order", async(req, res) => {
