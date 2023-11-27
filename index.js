@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 app.get("/",(req,res)=>{
     res.send("Welcome to Fyers V3 services")
 })
+app.get("/change ",(req,res)=>{
+    res.send("changed 12:22")
+})
 app.get("/order",(req,res)=>{
     res.send("Oder completed")
 })

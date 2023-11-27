@@ -39,11 +39,11 @@ function onconnect() {
   fyersdata.autoreconnect(); //enable auto reconnection mechanism in case of disconnection
 }
 
-const ws = require("ws");
-var client = new ws("ws://localhost:8080/");
-client.on("open", function open() {
-  console.log("connected");
-});
+// const ws = require("ws");
+// var client = new ws("ws://localhost:8080/");
+// client.on("open", function open() {
+//   console.log("connected");
+// });
 function onmsg(message) {
     console.log(message);
     // client.send(JSON.stringify(message));
